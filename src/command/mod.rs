@@ -43,7 +43,7 @@ async fn handle_help(seg: &[&str]) {
             println!("示例: test fact1 fact2");
         }
         ["db", ..] => {
-            println!("查看数据库信息");
+            println!("查看sqlite数据库信息");
             println!("用法: db <子命令>");
             println!("子命令:");
             println!("  connect <路径>: 连接数据库");

@@ -62,6 +62,15 @@ impl Context {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    match enable_ansi_support::enable_ansi_support() {
+        Ok(()) => {
+            println!("\x1b[31mHello, world\x1b[0m");
+        }
+        Err(e) => {
+            panic!("Could not enable ansi support: {}", e);
+        }
+    }
+
     if std::env::var("RUST_LOG").is_err() {
         std::env::set_var("RUST_LOG", "info");
     }
