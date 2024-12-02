@@ -1,7 +1,7 @@
 use crate::rule::Rule;
 use anyhow::Result;
 use sqlx::migrate::MigrateDatabase;
-use sqlx::{Sqlite, SqlitePool};
+use sqlx::{Row, Sqlite, SqlitePool};
 
 #[derive(Clone, Debug)]
 pub struct Database {
@@ -41,12 +41,12 @@ impl Database {
     }
 
     pub async fn load_rules_raw(&self) -> Result<Vec<(i64, String, String)>> {
-        let rows = sqlx::query!("SELECT id, condition, output FROM rules")
+        let rows = sqlx::query("SELECT id, condition, output FROM rules")
             .fetch_all(&self.conn)
             .await?;
         Ok(rows
             .into_iter()
-            .map(|row| (row.id, row.condition, row.output))
+            .map(|row| (row.get(0), row.get(1), row.get(2)))
             .collect())
     }
 
