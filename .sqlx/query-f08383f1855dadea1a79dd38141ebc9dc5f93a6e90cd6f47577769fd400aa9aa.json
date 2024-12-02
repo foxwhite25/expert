@@ -1,0 +1,26 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT condition, output FROM rules",
+  "describe": {
+    "columns": [
+      {
+        "name": "condition",
+        "ordinal": 0,
+        "type_info": "Text"
+      },
+      {
+        "name": "output",
+        "ordinal": 1,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 0
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "f08383f1855dadea1a79dd38141ebc9dc5f93a6e90cd6f47577769fd400aa9aa"
+}
