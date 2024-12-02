@@ -1,0 +1,6 @@
+/target
+/.sqlx
+/history.txt
+/rules.db
+/.idea
+/animal.db
